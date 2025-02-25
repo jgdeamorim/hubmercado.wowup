@@ -1,40 +1,10 @@
 version: "3.8"
 
 services:
-  db:
-    image: postgres:latest
-    restart: always
-    environment:
-      POSTGRES_DB: hubmercado
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: senha_forte
-    ports:
-      - "5432:5432"
-
-  redis:
-    image: redis:latest
-    restart: always
-    ports:
-      - "6379:6379"
-
-  backend:
-    build: .
-    restart: always
-    depends_on:
-      - db
-      - redis
-    environment:
-      DATABASE_URL: postgresql://postgres:senha_forte@db/hubmercado
-      REDIS_URL: redis://redis:6379
-    ports:
-      - "8000:8000"
-    command: uvicorn main:app --host 0.0.0.0 --port 8000 --reload
-
   frontend:
     build: .
     ports:
       - "3000:3000"
     environment:
-      - NEXT_PUBLIC_API_URL=http://backend:8000
-    depends_on:
-      - backend
+      - NEXT_PUBLIC_API_URL=https://hm.wowup.com.br # 🚀 API pública do backend
+    restart: always

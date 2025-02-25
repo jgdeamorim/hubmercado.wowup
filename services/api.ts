@@ -1,13 +1,12 @@
 import axios from "axios";
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
+const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
-export const api = axios.create({
-  baseURL: API_URL,
-  headers: {
-    "Content-Type": "application/json",
-  },
-});
+export const getClientes = async () => {
+  const response = await fetch(`${API_URL}/clientes`);
+  return response.json();
+};
+
 
 // Intercepta erros da API e loga no console
 const handleRequestError = (error: any) => {

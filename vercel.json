@@ -2,7 +2,7 @@
   "rewrites": [
     {
       "source": "/api/:path*",
-      "destination": "https://hm.wowup.com.br/api/:path*"
+      "destination": "https://hm.wowup.com.br/:path*"
     }
   ]
 }
