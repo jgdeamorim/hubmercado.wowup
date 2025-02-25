@@ -1,8 +1,8 @@
 {
   "rewrites": [
     {
-      "source": "/api/(.*)",
-      "destination": "https://hm.wowup.com.br/api/v1/$1"
+      "source": "/api/:path*",
+      "destination": "https://hm.wowup.com.br/api/:path*"
     }
   ]
 }
