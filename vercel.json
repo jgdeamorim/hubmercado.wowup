@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/api/(.*)",
+      "destination": "https://hm.wowup.com.br/api/v1/$1"
+    }
+  ]
+}

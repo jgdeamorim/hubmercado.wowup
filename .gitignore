@@ -1,0 +1,23 @@
+# Evita enviar credenciais e configurações locais
+.env
+.env.local
+.env.production
+
+# Dependências do Node.js
+node_modules/
+yarn.lock
+package-lock.json
+
+# Cache e arquivos temporários
+.next/
+out/
+dist/
+
+# Logs e erros
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Configurações do Editor
+.vscode/
+.idea/
