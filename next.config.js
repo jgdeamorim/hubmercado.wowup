@@ -2,17 +2,16 @@
 const nextConfig = {
   reactStrictMode: true,
   experimental: {
-    turbo: true,
-    serverActions: true,
+    turbo: {},
   },
   async rewrites() {
     return [
       {
         source: "/api/:path*",
-        destination: "https://hm.wowup.com.br/:path*"
-      }
+        destination: "https://hm.wowup.com.br/:path*",
+      },
     ];
-  }
+  },
 };
 
 module.exports = nextConfig;
