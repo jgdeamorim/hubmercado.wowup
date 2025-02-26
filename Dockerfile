@@ -6,7 +6,7 @@ WORKDIR /app
 
 # Copiar arquivos essenciais
 COPY package*.json ./
-RUN npm install
+RUN npm install --only=production
 
 # Copiar restante dos arquivos
 COPY . .
@@ -14,5 +14,5 @@ COPY . .
 # Gerar build do Next.js
 RUN npm run build
 
-# Comando para iniciar Next.js
-CMD ["npm", "run", "start"]
+# Iniciar Next.js corretamente
+CMD ["node_modules/.bin/next", "start"]

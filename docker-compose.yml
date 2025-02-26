@@ -6,5 +6,5 @@ services:
     ports:
       - "3000:3000"
     environment:
-      - NEXT_PUBLIC_API_URL=https://hm.wowup.com.br # 🚀 API pública do backend
-    restart: always
+      - NEXT_PUBLIC_API_URL=https://hm.wowup.com.br
+    restart: unless-stopped

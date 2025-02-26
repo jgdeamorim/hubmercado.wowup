@@ -1,29 +1,24 @@
-import { Line } from "react-chartjs-2";
+import React from 'react';
+import { Line } from 'react-chartjs-2';
+import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend } from 'chart.js';
 
-interface GraphsProps {
-  dados: {
-    meses: string[];
-    faturamento: number[];
-  };
-}
+ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
 
-export default function Graphs({ dados }: GraphsProps) {
+const Graphs = () => {
   const data = {
-    labels: dados.meses,
+    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May'],
     datasets: [
       {
-        label: "Faturamento Mensal",
-        data: dados.faturamento,
-        borderColor: "#4A90E2",
-        fill: false,
-      },
-    ],
+        label: 'Sales',
+        data: [30, 50, 40, 60, 70],
+        borderColor: 'rgb(75, 192, 192)',
+        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+        tension: 0.4
+      }
+    ]
   };
 
-  return (
-    <div className="bg-white p-4 rounded shadow-md">
-      <h2 className="text-lg font-semibold mb-2">Faturamento</h2>
-      <Line data={data} />
-    </div>
-  );
-}
+  return <Line data={data} />;
+};
+
+export default React.memo(Graphs);

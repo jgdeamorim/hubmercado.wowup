@@ -1,8 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  env: {
-    NEXT_PUBLIC_API_URL: process.env.NEXT_PUBLIC_API_URL
+  swcMinify: true, // 🚀 Ativa otimizações de compilação
+  compiler: {
+    styledComponents: true // 💡 Melhor compatibilidade com Material-UI
   },
   async rewrites() {
     return [
