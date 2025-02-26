@@ -1,17 +1,17 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  experimental: {
-    turbo: {},
+  env: {
+    NEXT_PUBLIC_API_URL: process.env.NEXT_PUBLIC_API_URL
   },
   async rewrites() {
     return [
       {
         source: "/api/:path*",
-        destination: "https://hm.wowup.com.br/:path*",
-      },
+        destination: `${process.env.NEXT_PUBLIC_API_URL}/:path*`
+      }
     ];
-  },
+  }
 };
 
 module.exports = nextConfig;
