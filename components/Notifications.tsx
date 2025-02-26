@@ -1,17 +1,17 @@
-import { useEffect, useState } from "react";
-import { getNotificacoes } from "@/services/api";
+import React from 'react';
 
-export default function Notifications() {
-  const [notificacoes, setNotificacoes] = useState([]);
+interface Notificacao {
+  id: number;
+  mensagem: string;
+}
 
-  useEffect(() => {
-    getNotificacoes()
-      .then((data) => setNotificacoes(data))
-      .catch((err) => console.error("Erro ao buscar notificações:", err));
-  }, []);
+interface NotificationsProps {
+  notificacoes: Notificacao[];
+}
 
+const Notifications: React.FC<NotificationsProps> = ({ notificacoes }) => {
   return (
-    <div className="bg-white p-4 rounded shadow-md">
+    <div className="p-4 bg-white rounded shadow">
       <h2 className="text-lg font-semibold mb-2">Notificações</h2>
       <ul>
         {notificacoes.map((notificacao) => (
@@ -20,4 +20,6 @@ export default function Notifications() {
       </ul>
     </div>
   );
-}
+};
+
+export default React.memo(Notifications);
