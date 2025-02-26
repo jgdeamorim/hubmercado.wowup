@@ -5,7 +5,7 @@ import { getClientes } from "@/services/api";
 
 export default function Topbar() {
   const { cliente, setCliente } = useCliente();
-  const [clientes, setClientes] = useState([]);
+  const [clientes, setClientes] = useState<{ id: number; nome: string }[]>([]);
 
   useEffect(() => {
     getClientes()
@@ -17,10 +17,14 @@ export default function Topbar() {
     <header className="bg-white shadow flex justify-between items-center px-6 py-4">
       <h1 className="text-xl font-semibold">Painel de Controle</h1>
 
-      <select className="border p-2 rounded" onChange={(e) => setCliente(e.target.value)} value={cliente}>
+      <select 
+        className="border p-2 rounded" 
+        onChange={(e) => setCliente(e.target.value)} 
+        value={cliente ?? ""}
+      >
         <option value="">Selecione um Cliente</option>
         {clientes.map((c) => (
-          <option key={c.id} value={c.id}>{c.nome}</option>
+          <option key={c.id} value={c.id.toString()}>{c.nome}</option>
         ))}
       </select>
 
