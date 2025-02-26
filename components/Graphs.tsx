@@ -1,6 +1,13 @@
 import { Line } from "react-chartjs-2";
 
-export default function Graphs({ dados }) {
+interface GraphsProps {
+  dados: {
+    meses: string[];
+    faturamento: number[];
+  };
+}
+
+export default function Graphs({ dados }: GraphsProps) {
   const data = {
     labels: dados.meses,
     datasets: [
