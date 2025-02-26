@@ -1,5 +1,10 @@
+/** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  experimental: {
+    turbo: true,
+    serverActions: true,
+  },
   async rewrites() {
     return [
       {

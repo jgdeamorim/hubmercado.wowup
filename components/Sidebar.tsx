@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Home, Users, Package, BarChart, Settings, Menu } from "@mui/icons-material";
+import { Home, People as Users, Inventory2 as Package, BarChart, Settings, Menu } from "@mui/icons-material";
 import Link from "next/link";
 
 const Sidebar = () => {
