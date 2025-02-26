@@ -1,7 +1,16 @@
 import { Notifications, AccountCircle } from "@mui/icons-material";
 import { useCliente } from "@/context/ClienteContext";
 
-const Header = ({ clientes }) => {
+interface Cliente {
+  id: number;
+  nome: string;
+}
+
+interface HeaderProps {
+  clientes: Cliente[];
+}
+
+const Header = ({ clientes }: HeaderProps) => {
   const { cliente, setCliente } = useCliente();
 
   return (
